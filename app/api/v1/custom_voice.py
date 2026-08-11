@@ -78,15 +78,15 @@ class CustomVoiceStreamRequest(BaseModel):
 async def list_speakers():
     """Return all available preset speaker names with their voice descriptions."""
     speakers = [
-        {"name": "Vivian",     "description": "Bright, slightly edgy young female voice.",            "native_language": "Chinese"},
-        {"name": "Serena",     "description": "Warm, gentle young female voice.",                     "native_language": "Chinese"},
-        {"name": "Uncle_Fu",   "description": "Seasoned male voice, mature with authority.",          "native_language": "Chinese"},
-        {"name": "Chelsie",    "description": "Crisp, professional young female voice.",              "native_language": "English"},
-        {"name": "Ethan",      "description": "Friendly, confident young male voice.",                "native_language": "English"},
-        {"name": "Cherry",     "description": "Cheerful, expressive young female voice.",             "native_language": "English"},
-        {"name": "Ryan",       "description": "Deep, calm professional male narrator voice.",         "native_language": "English"},
-        {"name": "Aura",       "description": "Smooth, futuristic-sounding androgynous voice.",       "native_language": "English"},
-        {"name": "Daniel",     "description": "Warm, conversational middle-aged male voice.",         "native_language": "English"},
+        {"name": "aiden",    "description": "Energetic young male voice.",                         "native_language": "English"},
+        {"name": "dylan",    "description": "Calm, composed male voice.",                          "native_language": "English"},
+        {"name": "eric",     "description": "Friendly, warm male voice.",                          "native_language": "English"},
+        {"name": "ono_anna", "description": "Clear, precise female voice.",                        "native_language": "Japanese"},
+        {"name": "ryan",     "description": "Deep, professional male narrator voice.",             "native_language": "English"},
+        {"name": "serena",   "description": "Warm, gentle young female voice.",                    "native_language": "Chinese"},
+        {"name": "sohee",    "description": "Bright, expressive young female voice.",              "native_language": "Korean"},
+        {"name": "uncle_fu", "description": "Seasoned, authoritative mature male voice.",          "native_language": "Chinese"},
+        {"name": "vivian",   "description": "Bright, slightly edgy young female voice.",           "native_language": "Chinese"},
     ]
     return {
         "speakers": speakers,
