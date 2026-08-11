@@ -51,13 +51,24 @@ def _get_dtype():
     return torch.float32
 
 
+def _is_flash_attn_available() -> bool:
+    """Check at runtime whether flash_attn is actually importable."""
+    try:
+        import flash_attn  # noqa: F401
+        return True
+    except ImportError:
+        return False
+
+
 def _get_attn():
     if (
         settings.use_flash_attention
         and settings.use_gpu
         and torch.cuda.is_available()
+        and _is_flash_attn_available()
     ):
         return "flash_attention_2"
+    logger.info("flash_attn not available or disabled — using 'eager' attention.")
     return "eager"
 
 
@@ -68,7 +79,7 @@ def _load_model(model_id: str):
     logger.info(f"⏳  Loading model {model_id} …")
     kwargs = {
         "device_map": _get_device_map(),
-        "dtype": _get_dtype(),
+        "torch_dtype": _get_dtype(),   # transformers expects torch_dtype, not dtype
         "attn_implementation": _get_attn(),
     }
 
