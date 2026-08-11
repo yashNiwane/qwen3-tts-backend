@@ -1,0 +1,24 @@
+# Qwen3-TTS core
+qwen-tts>=0.1.1
+
+# Web framework
+fastapi>=0.140.0
+uvicorn[standard]>=0.30.0
+python-multipart>=0.0.9      # needed for Form / File uploads
+
+# Settings
+pydantic>=2.0.0
+pydantic-settings>=2.0.0
+python-dotenv>=1.0.0
+
+# Audio I/O
+soundfile>=0.12.0
+numpy>=1.24.0
+
+# ngrok tunnel
+pyngrok>=7.0.0
+
+# ML runtime (pre-installed on Kaggle, listed for local dev)
+torch>=2.0.0
+torchaudio>=2.0.0
+transformers>=4.40.0

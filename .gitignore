@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Environment secrets — NEVER commit
+.env
+*.env.local
+ngrok_url.txt
+
+# Audio outputs (generated at runtime)
+audio_outputs/
+*.wav
+*.mp3
+
+# Model weights (downloaded at runtime)
+models/
+*.bin
+*.safetensors
+*.pt
+*.ckpt
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Jupyter
+.ipynb_checkpoints/
