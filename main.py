@@ -11,10 +11,15 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from pathlib import Path
 
 from app.core.config import settings
 from app.core.model_manager import model_manager
 from app.api.v1 import health, voice_clone, voice_design, custom_voice, info
+
+# Ensure audio output directory exists
+Path(settings.audio_output_dir).mkdir(parents=True, exist_ok=True)
 
 # ---------------------------------------------------------------------------
 # Logging
@@ -62,6 +67,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Serve audio outputs statically so frontend can stream / play generated WAV files directly
+app.mount("/audio_outputs", StaticFiles(directory=settings.audio_output_dir), name="audio_outputs")
 
 # ---------------------------------------------------------------------------
 # Routers
