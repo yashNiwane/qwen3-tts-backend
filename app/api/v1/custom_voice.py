@@ -135,11 +135,13 @@ async def custom_voice(req: CustomVoiceRequest):
         wavs, sr = result
         wav = wavs[0]
         duration = len(wav) / sr
-        file_path = save_audio(wav, sr, prefix=f"custom_{req.speaker.lower()}")
+        filename = Path(file_path).name
+        audio_url = f"/audio_outputs/{filename}"
 
         return AudioResponse(
             success=True,
             file_path=file_path,
+            audio_url=audio_url,
             sample_rate=sr,
             duration_sec=round(duration, 3),
             model_used=model_manager._custom_id,

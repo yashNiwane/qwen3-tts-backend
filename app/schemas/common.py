@@ -32,6 +32,7 @@ class AudioResponse(BaseModel):
     """Standard audio response returned by all generation endpoints."""
     success:        bool
     file_path:      str  = Field("", description="Absolute path of saved WAV file on the server.")
+    audio_url:      str  = Field("", description="Relative URL to fetch the generated audio file.")
     sample_rate:    int  = Field(0,  description="Sample rate of the generated audio (Hz).")
     duration_sec:   float = Field(0.0, description="Duration of generated audio in seconds.")
     model_used:     str  = Field("", description="HuggingFace model ID that was used.")
